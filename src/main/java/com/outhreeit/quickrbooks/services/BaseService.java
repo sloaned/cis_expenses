@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by g on 12/3/15.
  */
-public class BaseService<T extends BaseEntity> implements IBaseService<T> {
+public abstract class BaseService<T extends BaseEntity> implements IBaseService<T> {
     protected IBaseDao dao;
 
     public BaseService(IBaseDao dao) {
