@@ -1,6 +1,9 @@
 package com.outhreeit.quickrbooks.daos;
 
 import com.outhreeit.quickrbooks.entities.BaseEntity;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +12,8 @@ import java.util.ArrayList;
 /**
  * Created by g on 12/3/15.
  */
+@Transactional
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
 
     public BaseDao(String table, Class<T> entity) {
