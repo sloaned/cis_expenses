@@ -1,0 +1,16 @@
+.logo {
+    height: inherit;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.user-icon {
+    height: 40px;
+}
+
+#account-dropdown {
+    padding: 5px;
+    margin-right: 5px;
+}
