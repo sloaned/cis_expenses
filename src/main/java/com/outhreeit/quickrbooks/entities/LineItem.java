@@ -1,6 +1,8 @@
 package com.outhreeit.quickrbooks.entities;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.util.Currency;
 
 /**
@@ -14,6 +16,6 @@ public class LineItem{
     private Integer id;
 
     Currency datMoney;
-    @OneToOne
+    @ManyToOne
     LineItemType type;
 }

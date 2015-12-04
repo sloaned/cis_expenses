@@ -3,7 +3,6 @@ package com.outhreeit.quickrbooks.entities;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.util.Set;
 
 /**
@@ -15,5 +14,5 @@ public class ExpenseReport extends BaseEntity {
     Set<LineItem> lineItems;
 
     @ManyToOne
-    Usr usr;
+    User usr;
 }
