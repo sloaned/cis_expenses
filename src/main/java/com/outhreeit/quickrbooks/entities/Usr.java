@@ -1,7 +1,10 @@
 package com.outhreeit.quickrbooks.entities;
 
+import javax.persistence.Entity;
+
 /**
  * Created by gfisher on 12/4/2015.
  */
-public class Usr {
+@Entity
+public class Usr extends BaseEntity {
 }
