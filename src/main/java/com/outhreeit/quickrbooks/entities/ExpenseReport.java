@@ -14,5 +14,5 @@ public class ExpenseReport extends BaseEntity {
     Set<LineItem> lineItems;
 
     @ManyToOne
-    User usr;
+    User user;
 }
