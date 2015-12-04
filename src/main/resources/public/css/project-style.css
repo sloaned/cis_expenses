@@ -1,66 +1,68 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
-}
-body {
+
+div.projectBody {
+    position: relative;
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: black;
     font-weight: 300;
+    text-align: center;
 }
-body ::-webkit-input-placeholder {
+
+div.projectBody ::-webkit-input-placeholder {
     /* WebKit browsers */
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: cadetblue;
     font-weight: 300;
 }
-body :-moz-placeholder {
+
+div.projectBody :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: cadetblue;
     opacity: 1;
     font-weight: 300;
 }
-body ::-moz-placeholder {
+
+div.projectBody ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: cadetblue;
     opacity: 1;
     font-weight: 300;
 }
-body :-ms-input-placeholder {
+
+div.projectBody :-ms-input-placeholder {
     /* Internet Explorer 10+ */
     font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+    color: cadetblue;
     font-weight: 300;
 }
-.wrapper {
-    background: #50a3a2;
+
+.projectWrapper {
+   /* background: #50a3a2;
     background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);*/
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
     width: 100%;
     height: 400px;
-    margin-top: -200px;
+   /* margin-top: -200px;*/
     overflow: hidden;
 }
-.wrapper.form-success .container h1 {
+.projectWrapper.form-success .productContainer h1.projectHeader {
     -webkit-transform: translateY(85px);
     -ms-transform: translateY(85px);
     transform: translateY(85px);
 }
-.container {
+.projectContainer {
     max-width: 600px;
     margin: 0 auto;
     padding: 80px 0;
     height: 400px;
     text-align: center;
 }
-.container h1 {
+.projectContainer h1.projectHeader {
     font-size: 40px;
     -webkit-transition-duration: 1s;
     transition-duration: 1s;
@@ -68,18 +70,19 @@ body :-ms-input-placeholder {
     transition-timing-function: ease-in-put;
     font-weight: 200;
 }
-form {
+.projectForm {
     padding: 20px 0;
     position: relative;
     z-index: 2;
 }
-form input {
+
+.projectInput {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     outline: 0;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid grey;
+    background-color: lightgrey;
     width: 250px;
     border-radius: 3px;
     padding: 10px 15px;
@@ -87,38 +90,43 @@ form input {
     display: block;
     text-align: center;
     font-size: 18px;
-    color: white;
+    color: black;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
     font-weight: 300;
 }
-form input:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+
+.projectInput:hover {
+    background-color: grey;
+    color: lightgrey;
 }
-form input:focus {
-    background-color: white;
+
+.projectInput:focus {
+    background-color: whitesmoke;
     width: 300px;
-    color: #53e3a6;
+    color: black;
 }
-form button {
+
+.projectButton {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     outline: 0;
-    background-color: white;
+    background-color: lightgrey;
     border: 0;
     padding: 10px 15px;
-    color: #53e3a6;
+    color: black;
     border-radius: 3px;
     width: 250px;
-    cursor: pointer;
+    cursor: hand;
     font-size: 18px;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
 }
-form button:hover {
-    background-color: #f5f7f9;
+.projectButton:hover {
+    background-color: grey;
 }
+/*
 .bg-bubbles {
     position: absolute;
     top: 0;
@@ -126,7 +134,8 @@ form button:hover {
     width: 100%;
     height: 100%;
     z-index: 1;
-}
+}9
+
 .bg-bubbles li {
     position: absolute;
     list-style: none;
@@ -229,3 +238,4 @@ form button:hover {
         transform: translateY(-700px) rotate(600deg);
     }
 }
+*/
