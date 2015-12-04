@@ -21,7 +21,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
                     return expenseReportFactory.createExpenseReport();
                 },
                 getExpenseReport: function(expenseReportFactory) {
-                    return expenseReportFactory.getDatExpenseReport();
+                    var data = {};
+                    return expenseReportFactory.getDatExpenseReport(data);
                 }
             }
         });
