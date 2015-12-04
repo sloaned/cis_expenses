@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('QuickrBooks', ['ui.router']);
+angular.module('QuickrBooks', ['ui.router', 'mgcrea.ngStrap']);

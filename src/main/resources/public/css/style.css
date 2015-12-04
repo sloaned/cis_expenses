@@ -1,5 +1,6 @@
 .logo {
     height: inherit;
+    padding: 3px;
 }
 
 .navbar-brand {
@@ -11,6 +12,9 @@
 }
 
 #account-dropdown {
-    padding: 5px;
-    margin-right: 5px;
+    padding: 5px 10px 5px 5px;
+}
+
+.navbar-nav > li {
+    border-left: 1px solid #E7E7E7;
 }
