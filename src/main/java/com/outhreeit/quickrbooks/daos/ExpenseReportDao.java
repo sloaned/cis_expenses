@@ -2,6 +2,7 @@ package com.outhreeit.quickrbooks.daos;
 
 import com.outhreeit.quickrbooks.entities.ExpenseReport;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by ddelaney on 12/4/2015.
@@ -9,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ExpenseReportDao extends BaseDao<ExpenseReport> implements IExpenseReportDao {
     public ExpenseReportDao() {
-        super("expensereport", ExpenseReport.class);
+        super(ExpenseReport.class);
     }
 }

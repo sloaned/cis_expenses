@@ -5,7 +5,7 @@ app.factory('expenseReportFactory', ['$http',
     function($http) {
         return {
             createExpenseReport: function(){
-                return $http.post('/expense-report');
+                return $http.post('/expense-report', data);
             },
             getDatExpenseReport: function(){
                 return $http.get('/expense-report');
