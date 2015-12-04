@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('QuickrBooks').config(['$stateProvider', '$urlRouterProvider',
+app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.otherwise('/');
@@ -18,10 +18,10 @@ angular.module('QuickrBooks').config(['$stateProvider', '$urlRouterProvider',
             controller: 'expenseReportCtrl',
             resolve: {
                 createExpenseReport: function(expenseReportFactory){
-                    expenseReportFactory.createExpenseReport();
+                    return expenseReportFactory.createExpenseReport();
                 },
-                getExpenseReport: function(expenseReportfactory) {
-                    return expenseReportfactory.getDatExpenseReport();
+                getExpenseReport: function(expenseReportFactory) {
+                    return expenseReportFactory.getDatExpenseReport();
                 }
             }
         });
