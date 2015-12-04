@@ -18,7 +18,6 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public List<T> getAll() {
-
         return service.getAll();
     }
 
