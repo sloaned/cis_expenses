@@ -6,7 +6,7 @@ import com.outhreeit.quickrbooks.entities.BaseEntity;
 import java.util.List;
 
 /**
- * Created by g on 12/3/15.
+ * Created by gfisher on 12/3/15.
  */
 
 public abstract class BaseService<T extends BaseEntity> implements IBaseService<T> {
