@@ -5,7 +5,7 @@ angular.module('QuickrBooks').factory('projectFactory', ['$http', function($http
         create: function(project, response) {
             $http({
                 method: 'POST',
-                url: "/project/create",
+                url: "/project",
                 data: project,
             }).success(response);
         }

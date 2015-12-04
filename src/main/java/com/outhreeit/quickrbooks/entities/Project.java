@@ -1,9 +1,18 @@
 package com.outhreeit.quickrbooks.entities;
 
-/**
- * Created by sengcha on 12/3/15.
- */
+import javax.persistence.Entity;
+
+@Entity
 public class Project extends BaseEntity {
-    // private  approver;
-    //
+  /*  private User approver;
+
+    public User getApprover() {
+        return approver;
+    }
+
+    public void setApprover(User approver) {
+        this.approver = approver;
+    }
+
+*/
 }
