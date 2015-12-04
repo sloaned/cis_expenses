@@ -4,8 +4,8 @@
 app.factory('expenseReportFactory', ['$http',
     function($http) {
         return {
-            createExpenseReport: function(){
-                return $http.post('/expense-report', data);
+            createExpenseReport: function(data){
+                return $http.post('/expense-report', {ExpenseReport: data});
             },
             getDatExpenseReport: function(){
                 return $http.get('/expense-report');
