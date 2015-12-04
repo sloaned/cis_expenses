@@ -15,4 +15,20 @@ public class ExpenseReport extends BaseEntity {
 
     @ManyToOne
     User user;
+
+    public Set<LineItem> getLineItems() {
+        return lineItems;
+    }
+
+    public void setLineItems(Set<LineItem> lineItems) {
+        this.lineItems = lineItems;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
