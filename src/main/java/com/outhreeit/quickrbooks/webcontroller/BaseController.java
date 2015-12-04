@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by g on 12/3/15.
- */
 @RestController
 public abstract class BaseController<T extends BaseEntity> implements IBaseController<T> {
 
