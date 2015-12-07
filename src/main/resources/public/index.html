@@ -7,23 +7,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.tpl.min.js"></script>
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/getProjectDemo-style.css" />
         <link rel="stylesheet" type="text/css" href="css/project-style.css" />
 
 
         <!-- scripts -->
-
+        <script src="js/app.js"></script>
         <script src="js/controllers/expenseReportCtrl.js"></script>
         <script src="js/factory/expenseReportFactory.js"></script>
         <script src="js/routes.js"></script>
-        <script src="js/app.js"></script>
         <script src="js/project-js/projectCreateCtrl.js"></script>
         <script src="js/project-js/projectGetCtrl.js"></script>
-        <script src="js/project-js/projectFactory.js"></script>
+        <script src="js/factory/projectFactory.js"></script>
         <script src="js/project-js/projectEnterKeyDirective.js"></script>
-        <script src="js/project-js/projectRoutes.js"></script>
 
 
         <meta charset="UTF-8">
@@ -49,7 +48,7 @@
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" bs-dropdown role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a>Project</a></li>
+                            <li ui-sref="createProject"><a>Project</a></li>
                             <li ui-sref="expenseReport"><a>Expense Report</a></li>
                         </ul>
                     </li>
