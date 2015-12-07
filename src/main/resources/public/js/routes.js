@@ -17,6 +17,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
             templateUrl: '../templates/expense_report.tpl.html',
             controller: 'expenseReportCtrl',
             resolve: {
+                LineItemTypes: function(expenseReportFactory) {
+                    return expenseReportFactory.getAllListItems();
+                },
                 getAllProjects: function(projectFactory) {
                     return projectFactory.getAll();
                 }
