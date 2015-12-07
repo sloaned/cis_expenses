@@ -1,5 +1,7 @@
 package com.outhreeit.quickrbooks.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -11,6 +13,7 @@ import java.util.Set;
 @Entity
 public class ExpenseReport extends BaseEntity {
     @ManyToMany
+    @JsonBackReference
     Set<LineItem> lineItems;
 
     @ManyToOne

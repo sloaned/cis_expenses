@@ -15,16 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
         }).state('expenseReport', {
             url: '/expense-report',
             templateUrl: '../templates/expense_report.tpl.html',
-            controller: 'expenseReportCtrl',
-            resolve: {
-                createExpenseReport: function(expenseReportFactory){
-                    return expenseReportFactory.createExpenseReport();
-                },
-                getExpenseReport: function(expenseReportFactory) {
-                    var data = {};
-                    return expenseReportFactory.getDatExpenseReport(data);
-                }
-            }
+            controller: 'expenseReportCtrl'
         });
 
     }]);
