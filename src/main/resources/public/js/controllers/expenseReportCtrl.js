@@ -4,6 +4,7 @@
 app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes',
     function($scope, expenseReportFactory, LineItemTypes){
         var expenseReport = {};
+        $scope.lineItems = [];
         expenseReport.name = $scope.inputExpenseReportName;
 
         $scope.save = function(){
@@ -11,14 +12,10 @@ app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItem
         }
 
         $scope.addItem = function(){
-        console.log("I called the addItem function");
-        console.log($scope.drpdwnvalue);
-            var lineItem = angular.element('Hi');
-            var selectBox = angular.element(document.querySelector('#drpdwnvalue'));
-            selectBox.append(lineItem);
+            $scope.lineItems.push($scope.dropdownvalue);
+            console.log($scope.lineItems);
         }
 
         $scope.LineItemTypes = LineItemTypes.data;
-        console.log($scope.LineItemTypes);
     }
 ]);

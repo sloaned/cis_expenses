@@ -4,9 +4,15 @@
         <label for="inputExpenseReportName">Name</label>
         <input type="text" class="form-control" ng-model="inputExpenseReportName" id="inputExpenseReportName" placeholder="Name">
     </div>
-    <div>
+
+    <div class="form-group" ng-repeat="line in lineItems">
+        <label>{{line.name}}</label>
+        <input type="text" class="form-control" ng-model="line" placeholder="line.name">
+    </div>
+
+    <div class="form-group" >
         <label for="drpdwnvalue">Add Line Item</label>
-        <select id="drpdwnvalue" ng-change="addItem()" ng-model="drpdwnvalue" ng-options="type.name for type in LineItemTypes">
+        <select class="form-control" id="drpdwnvalue" ng-change="addItem()" ng-model="dropdownvalue" ng-options="type.name for type in LineItemTypes">
             <option></option>
         </select>
     </div>
