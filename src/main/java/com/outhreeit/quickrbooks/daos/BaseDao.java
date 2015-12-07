@@ -13,8 +13,8 @@ import java.util.ArrayList;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
 
-    public BaseDao(String table, Class<T> entity) {
-        this.table = table;
+    public BaseDao(Class<T> entity) {
+        this.table = entity.getSimpleName();
         this.entity = entity;
     }
 

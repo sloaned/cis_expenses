@@ -33,11 +33,7 @@ angular.module('QuickrBooks').config(function ($stateProvider, $urlRouterProvide
     $stateProvider
 
     /* Code starts (Use the code below as the state for the creating new project page) */
-        .state('createProject', {
-            url: '/createProject',
-            templateUrl: '/project-partials/project.tpl.html',
-            controller: 'projectCreateCtrl'
-        })
+
         /* Code ends */
 
         /* This code is for demo purposes only, for populating the project drop down

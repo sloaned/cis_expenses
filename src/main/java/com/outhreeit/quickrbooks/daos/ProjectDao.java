@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ProjectDao extends BaseDao<Project> implements IProjectDao {
     public ProjectDao() {
-        super("Project", Project.class);
+        super(Project.class);
     }
 }
