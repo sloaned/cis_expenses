@@ -9,6 +9,9 @@ app.factory('expenseReportFactory', ['$http',
             },
             getDatExpenseReport: function(){
                 return $http.get('/expense-report');
+            },
+            getAllListItems: function(){
+                return $http.get('/line-item-types');
             }
         };
     }
