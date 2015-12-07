@@ -46,8 +46,8 @@ public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
     private String getSelect(){
         return "SELECT x from  "+ table;
     }
-    public T getByID(Integer id) {
 
+    public T getByID(Integer id) {
         return em.createQuery(getSelect() +" x where x.id = :id", entity).setParameter("id",id).getSingleResult();
     }
 

@@ -34,7 +34,53 @@ public class ProjectDaoTest {
         when(mockEm.createQuery(anyString(), eq(Project.class))).thenReturn(mockTypedQuery);
         when(mockTypedQuery.getResultList()).thenReturn(expected);
         dao.getAll();
-        verify(mockTypedQuery, times(1)).getResultList();
 
+        verify(mockTypedQuery, times(1)).getResultList();
     }
+
+    @Test
+    public void addTest() {
+        dao.add(null);
+
+        verify(mockEm, times(1)).persist(null);
+    }
+
+    @Test
+    public void updateTest() {
+        Project expectedProject = new Project();
+        expectedProject.setId(1);
+
+        dao.update(expectedProject);
+
+        verify(mockEm, times(1)).merge(expectedProject);
+    }
+
+    @Test
+    public void deleteTest() {
+        Project deleteProject = new Project();
+        deleteProject.setId(1);
+
+        TypedQuery<Project> mockTypedQuery = mock(TypedQuery.class);
+
+        when(mockEm.createQuery(anyString(), eq(Project.class))).thenReturn(mockTypedQuery);
+        when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
+        when(mockTypedQuery.getSingleResult()).thenReturn(deleteProject);
+
+        dao.delete(1);
+
+        verify(mockEm, times(1)).remove(deleteProject);
+        verify(mockTypedQuery, times(1)).setParameter(eq("id"), eq(1));
+    }
+
+    @Test
+    public void getByIdTest() {
+        TypedQuery<Project> mockTypedQuery = mock(TypedQuery.class);
+
+        when(mockEm.createQuery(anyString(), eq(Project.class))).thenReturn(mockTypedQuery);
+        when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
+
+        dao.getByID(1);
+        verify(mockTypedQuery, times(1)).setParameter(eq("id"), eq(1));
+    }
+
 }
