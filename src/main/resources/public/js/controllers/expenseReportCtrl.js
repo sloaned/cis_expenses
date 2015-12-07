@@ -1,9 +1,11 @@
 /**
  * Created by ddelaney on 12/3/2015.
  */
-app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes','projectFactory',
-    function($scope, expenseReportFactory, LineItemTypes, projectFactory){
+app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes','projectFactory','getAllProjects',
+    function($scope, expenseReportFactory, LineItemTypes, projectFactory,getAllProjects){
         var expenseReport = {};
+        console.log(getAllProjects.data);
+        $scope.projects = getAllProjects.data;
         $scope.lineItems = [];
         expenseReport.name = $scope.inputExpenseReportName;
 
