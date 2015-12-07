@@ -3,6 +3,7 @@ package com.outhreeit.quickrbooks.entities;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import java.math.BigDecimal;
 import java.util.Currency;
 
 /**
@@ -15,7 +16,8 @@ public class LineItem{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    Currency datMoney;
+
+    BigDecimal datMoney;
 
     @ManyToOne
     LineItemType type;
@@ -32,11 +34,11 @@ public class LineItem{
         this.type = type;
     }
 
-    public Currency getDatMoney() {
+    public BigDecimal getDatMoney() {
         return datMoney;
     }
 
-    public void setDatMoney(Currency datMoney) {
+    public void setDatMoney(BigDecimal datMoney) {
         this.datMoney = datMoney;
     }
 }
