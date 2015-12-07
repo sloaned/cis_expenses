@@ -1,8 +1,8 @@
 /**
  * Created by ddelaney on 12/3/2015.
  */
-app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory',
-    function($scope, expenseReportFactory){
+app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory','projectFactory',
+    function($scope, expenseReportFactory,projectFactory){
         var expenseReport = {};
 
         $scope.save = function(){

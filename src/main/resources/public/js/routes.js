@@ -15,7 +15,16 @@ app.config(['$stateProvider', '$urlRouterProvider',
         }).state('expenseReport', {
             url: '/expense-report',
             templateUrl: '../templates/expense_report.tpl.html',
-            controller: 'expenseReportCtrl'
+            controller: 'expenseReportCtrl',
+            resolve: {
+                getAllProjects: function(projectFactory) {
+                    return projectFactory.getAll();
+                }
+            }
+        }).state('createProject', {
+                      url: '/createProject',
+                      templateUrl: '../templates/project.tpl.html',
+                      controller: 'projectCreateCtrl'
         });
 
     }]);

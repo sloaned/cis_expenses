@@ -8,9 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableWebSecurity
 @Configuration
-public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
+public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    @Override
+
+ @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("user").password("root").authorities("USER");
     }
@@ -21,3 +22,4 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
         http.csrf().disable();
     }
 }
+
