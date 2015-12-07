@@ -19,8 +19,15 @@ app.config(['$stateProvider', '$urlRouterProvider',
             resolve: {
                 LineItemTypes: function(expenseReportFactory) {
                     return expenseReportFactory.getAllListItems();
+                },
+                getAllProjects: function(projectFactory) {
+                    return projectFactory.getAll();
                 }
             }
+        }).state('createProject', {
+                      url: '/createProject',
+                      templateUrl: '../templates/project.tpl.html',
+                      controller: 'projectCreateCtrl'
         });
 
     }]);

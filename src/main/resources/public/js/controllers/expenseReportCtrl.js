@@ -1,13 +1,14 @@
 /**
  * Created by ddelaney on 12/3/2015.
  */
-app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes',
-    function($scope, expenseReportFactory, LineItemTypes){
+app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes','projectFactory',
+    function($scope, expenseReportFactory, LineItemTypes, projectFactory){
         var expenseReport = {};
         $scope.lineItems = [];
         expenseReport.name = $scope.inputExpenseReportName;
 
         $scope.save = function(){
+            expenseReport.name = $scope.inputExpenseReportName;
             expenseReportFactory.createExpenseReport(expenseReport);
         }
 
