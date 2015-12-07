@@ -12,8 +12,11 @@ app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItem
         }
 
         $scope.addItem = function(){
-            $scope.lineItems.push($scope.dropdownvalue);
-            console.log($scope.lineItems);
+            var item = $scope.dropdownvalue;
+            var arr = $scope.lineItems;
+            if(arr.indexOf(item) == -1){
+            arr.push(item);
+            }
         }
 
         $scope.LineItemTypes = LineItemTypes.data;
