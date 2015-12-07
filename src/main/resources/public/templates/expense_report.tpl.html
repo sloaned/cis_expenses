@@ -4,7 +4,6 @@
         <label for="inputExpenseReportName">Name</label>
         <input type="text" class="form-control" ng-model="inputExpenseReportName" id="inputExpenseReportName" placeholder="Name">
     </div>
-    <>
 
     <div class="form-group" ng-repeat="line in lineItems">
         <label>{{line.name}}</label>
@@ -17,6 +16,13 @@
             <option></option>
         </select>
     </div>
+    <a href="" class="dropdown-toggle" bs-dropdown role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
+
+    <ul class="dropdown-menu">
+        <li ><a>Project</a></li>
+        <li ng-repeat="p in projects"><a>{{p.name}}</a></li>
+    </ul>
+
     <div>
         <button type="submit" ng-click="save()" class="btn btn-default">Save</button>
     </div>
