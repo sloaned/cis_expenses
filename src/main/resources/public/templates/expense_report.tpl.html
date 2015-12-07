@@ -6,8 +6,8 @@
     </div>
     <div>
         <label for="drpdwnvalue">Add Line Item</label>
-        <select id="drpdwnvalue" ng-model="drpdwnvalue" ng-options="type.name for type in LineItemTypes">
-            <option value="type.name" ng-change="addItem()" label="Add a Line Item"></option>
+        <select id="drpdwnvalue" ng-change="addItem()" ng-model="drpdwnvalue" ng-options="type.name for type in LineItemTypes">
+            <option></option>
         </select>
     </div>
     <div>

@@ -12,7 +12,10 @@ app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItem
 
         $scope.addItem = function(){
         console.log("I called the addItem function");
-            $(this).before('<div class="form-group"><label for="inputExpenseReportName">{{type.Name}}</label><input type="text" class="form-control" ng-model="inputExpenseReportName" id="inputExpenseReportName" placeholder="Name"></div>');
+        console.log($scope.drpdwnvalue);
+            var lineItem = angular.element('Hi');
+            var selectBox = angular.element(document.querySelector('#drpdwnvalue'));
+            selectBox.append(lineItem);
         }
 
         $scope.LineItemTypes = LineItemTypes.data;
