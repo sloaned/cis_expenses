@@ -4,9 +4,9 @@
 app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory',
     function($scope, expenseReportFactory){
         var expenseReport = {};
-        expenseReport.name = $scope.inputExpenseReportName;
 
         $scope.save = function(){
+            expenseReport.name = $scope.inputExpenseReportName;
             expenseReportFactory.createExpenseReport(expenseReport);
         }
     }
