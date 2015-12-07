@@ -20,5 +20,10 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("user").password("root").authorities("USER");
     }
 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.csrf().disable();
+    }
 }
 
