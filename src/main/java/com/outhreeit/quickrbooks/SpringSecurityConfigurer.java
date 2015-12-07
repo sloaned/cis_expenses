@@ -24,7 +24,7 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
        
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                //.antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -42,26 +42,6 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
        
         return provider;
     }
-   
-    /*@Autowired
-    private DataSource dataSource;
-   
-    @Autowired
-    private ContextSource contextSource;
-   
-
-    public boolean authenticate(String userDn, String credentials){
-        DirContext ctx = null;
-        try{
-            ctx = contextSource.getContext(userDn, credentials);
-            return true;
-        } catch(Exception e){
-            return false;
-        } finally{
-            LdapUtils.closeContext(ctx);
-        }
-    }*/
-    
-	
+    	
     
 }
