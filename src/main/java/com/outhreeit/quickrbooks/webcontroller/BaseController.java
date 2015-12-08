@@ -18,7 +18,6 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public List<T> getAll() {
-
         return service.getAll();
     }
 
@@ -37,7 +36,7 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
         service.delete(id);
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.POST)
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public T getByID(@PathVariable Integer id) {
         return (T) service.getByID(id);
     }

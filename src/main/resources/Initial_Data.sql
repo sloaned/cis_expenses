@@ -1,0 +1,14 @@
+INSERT INTO usr(name) VALUES ('Alfred Hitchcock');
+INSERT INTO usr(name) VALUES ('Bill Murray');
+INSERT INTO expensereport(name, user_id) VALUES ('Seattle Trip for KCLS', 1);
+INSERT INTO expensereport(name, user_id) VALUES ('Traveled to Arizona for Choice', 2);
+INSERT INTO lineitemtype(name) VALUES ('Mileage');
+INSERT INTO lineitemtype(name) VALUES ('Per Diem');
+INSERT INTO lineitemtype(name) VALUES ('Lodging');
+INSERT INTO lineitemtype(name) VALUES ('Travel');
+INSERT INTO lineitemtype(name) VALUES ('Meals');
+INSERT INTO lineitemtype(name) VALUES ('Entertainment');
+INSERT INTO lineitemtype(name) VALUES ('Parking');
+INSERT INTO lineitemtype(name) VALUES ('Other');
+INSERT INTO lineitem(datmoney, type_id) VALUES ('$25.00', 1);
+INSERT INTO expensereport_lineitem(expensereport_id, lineitems_id) VALUES (1,1);

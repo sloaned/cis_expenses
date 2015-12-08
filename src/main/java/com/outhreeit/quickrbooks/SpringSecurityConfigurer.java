@@ -60,5 +60,5 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
         return repository; 
     }
     	
-    
 }
+

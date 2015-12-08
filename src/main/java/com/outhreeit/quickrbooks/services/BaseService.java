@@ -5,7 +5,9 @@ import com.outhreeit.quickrbooks.entities.BaseEntity;
 
 import java.util.List;
 
-
+/**
+ * Created by gfisher on 12/3/15.
+ */
 
 public abstract class BaseService<T extends BaseEntity> implements IBaseService<T> {
     protected IBaseDao dao;
@@ -27,7 +29,7 @@ public abstract class BaseService<T extends BaseEntity> implements IBaseService<
     }
 
     public void delete(Integer id) {
-
+        dao.delete(id);
     }
 
     public BaseService() {
