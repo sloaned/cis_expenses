@@ -12,10 +12,10 @@ import java.util.Set;
  */
 @Entity
 public class ExpenseReport extends BaseEntity {
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     Set<LineItem> lineItems;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     User user;
 
     public Set<LineItem> getLineItems() {
