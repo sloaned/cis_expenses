@@ -7,7 +7,7 @@
 
     <div class="form-group" ng-repeat="line in lineItems">
         <label>{{line.name}}</label>
-        <input type="text" class="form-control" ng-model="datmoney" placeholder="Value Amount Here">
+        <input type="text" class="form-control" ng-model="line.datMoney" ui-money-mask placeholder="Value Amount Here">
     </div>
 
     <div class="form-group" >

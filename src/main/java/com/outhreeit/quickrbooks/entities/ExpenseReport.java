@@ -1,18 +1,12 @@
 package com.outhreeit.quickrbooks.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by gfisher on 12/3/2015.
- */
+
 @Entity
 public class ExpenseReport extends BaseEntity {
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     Set<LineItem> lineItems;
 
     @ManyToOne
