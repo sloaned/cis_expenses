@@ -15,10 +15,8 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.outhreeit.quickrbooks.daos.UserTestDao;
 import com.outhreeit.quickrbooks.daos.UsernameDao;
 import com.outhreeit.quickrbooks.entities.Username;
-import com.outhreeit.quickrbooks.services.UserTestService;
 import com.outhreeit.quickrbooks.services.UsernameService;
 import com.outhreeit.quickrbooks.webcontroller.UsernameController;
 

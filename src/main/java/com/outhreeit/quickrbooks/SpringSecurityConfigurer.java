@@ -3,7 +3,6 @@ package com.outhreeit.quickrbooks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.event.LoggerListener;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +14,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
+
 	
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
@@ -52,13 +52,13 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
        
         return provider;
     }
-    
+    /*
     private CsrfTokenRepository csrfTokenRepository() 
     { 
         HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository(); 
         repository.setSessionAttributeName("_csrf");
         return repository; 
-    }
+    }*/
     	
 }
 
