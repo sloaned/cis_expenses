@@ -16,9 +16,17 @@ import com.outhreeit.quickrbooks.services.UserService;
 @RestController
 public class UserWebController extends BaseController<User>{
 
+	private UserService userService;
+	
 	@Autowired
 	public UserWebController(UserService service){
 		super(service);
+		userService = (UserService) super.service;
+	}
+	
+	@RequestMapping(value="/currentuser", method=RequestMethod.GET)
+	public User getCurrentUser(){
+		return userService.getCurrentUser();
 	}
 	
 	

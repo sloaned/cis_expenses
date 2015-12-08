@@ -26,6 +26,11 @@ public class UserService extends BaseService<User>{
         	dao.add(user);
         }
 	}
+	
+	public User getCurrentUser(){
+		String name = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+		return (User) dao.getByName(name);
+	}
 
 
 
