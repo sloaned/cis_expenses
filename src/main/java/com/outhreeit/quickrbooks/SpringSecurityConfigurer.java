@@ -11,15 +11,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 
- @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("root").authorities("USER");
-    }
+  @Override
+  public void configure(AuthenticationManagerBuilder auth) throws Exception {
+      auth.inMemoryAuthentication().withUser("user").password("root").authorities("USER");
+  }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.csrf().disable();
-    }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+      super.configure(http);
+      http.csrf().disable();
+  }
 }
 

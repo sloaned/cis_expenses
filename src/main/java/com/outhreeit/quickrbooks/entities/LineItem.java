@@ -12,7 +12,7 @@ public class LineItem{
     private Integer id;
     BigDecimal datMoney;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     LineItemType type;
 
     public Integer getId() {
