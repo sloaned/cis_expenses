@@ -12,6 +12,17 @@ public class ExpenseReport extends BaseEntity {
     @ManyToOne(cascade = CascadeType.MERGE)
     User user;
 
+    @ManyToOne
+    Project project;
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public Set<LineItem> getLineItems() {
         return lineItems;
     }
