@@ -1,17 +1,17 @@
 /**
  * Created by ddelaney on 12/3/2015.
  */
-app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes','projectFactory','getAllProjects',
-    function($scope, expenseReportFactory, LineItemTypes, projectFactory,getAllProjects){
-        var expenseReport = {};
-        console.log(getAllProjects.data);
-        $scope.projects = getAllProjects.data;
+app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItemTypes',
+    function($scope, expenseReportFactory, LineItemTypes){
+        $scope.expenseReport = {};
+
         $scope.lineItems = [];
-        expenseReport.name = $scope.inputExpenseReportName;
+        $scope.expenseReport.name = $scope.inputExpenseReportName;
 
         $scope.save = function(){
-            expenseReport.name = $scope.inputExpenseReportName;
-            expenseReportFactory.createExpenseReport(expenseReport);
+            $scope.expenseReport.name = $scope.inputExpenseReportName;
+
+            expenseReportFactory.createExpenseReport($scope.expenseReport);
         }
 
         $scope.addItem = function(){
