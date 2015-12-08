@@ -1,14 +1,14 @@
 package com.outhreeit.quickrbooks.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import java.util.Set;
 
 @Entity
 public class Project extends BaseEntity {
 
-  @OneToMany
+  @Transient
   private Set<ExpenseReport> reports;
   @OneToOne
   private User approver;

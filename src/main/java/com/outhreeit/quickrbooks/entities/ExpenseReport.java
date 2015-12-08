@@ -15,6 +15,8 @@ public class ExpenseReport extends BaseEntity {
 
     @ManyToOne
     User user;
+    @ManyToOne
+    Project project;
 
     public Project getProject() {
         return project;
@@ -24,8 +26,7 @@ public class ExpenseReport extends BaseEntity {
         this.project = project;
     }
 
-    @ManyToOne
-    Project project;
+
     public Set<LineItem> getLineItems() {
         return lineItems;
     }
