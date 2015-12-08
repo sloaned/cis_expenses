@@ -104,6 +104,12 @@
 		   <artifactId>spring-security-ldap</artifactId>
 		   <version>4.0.3.RELEASE</version>
 	   </dependency>
+	  <!--   <dependency>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-all</artifactId>
+			<version>1.5.7</version>
+		</dependency>
+	   -->
     </dependencies>
     <build>
         <plugins>

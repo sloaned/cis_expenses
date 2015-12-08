@@ -5,9 +5,7 @@ import com.outhreeit.quickrbooks.entities.BaseEntity;
 
 import java.util.List;
 
-/**
- * Created by g on 12/3/15.
- */
+
 
 public abstract class BaseService<T extends BaseEntity> implements IBaseService<T> {
     protected IBaseDao dao;
@@ -38,5 +36,9 @@ public abstract class BaseService<T extends BaseEntity> implements IBaseService<
 
     public T getByID(Integer id){
         return (T) dao.getByID(id);
+    }
+    
+    public boolean doesNameExist(String name){
+    	return dao.doesNameExist(name);
     }
 }

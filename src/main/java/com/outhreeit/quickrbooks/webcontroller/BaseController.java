@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by g on 12/3/15.
- */
 @RestController
 public abstract class BaseController<T extends BaseEntity> implements IBaseController<T> {
 
@@ -43,5 +40,10 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
     @RequestMapping(value="/{id}", method=RequestMethod.POST)
     public T getByID(@PathVariable Integer id) {
         return (T) service.getByID(id);
+    }
+    
+    @RequestMapping(value="/{name}", method=RequestMethod.GET)
+    public boolean doesNameExist(@PathVariable String name){
+    	return service.doesNameExist(name);
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">  
+<head>
+        <!-- dependencies -->
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.tpl.min.js"></script>
+        <!-- scripts -->
+
+        <meta charset="UTF-8">
+        <title>Log In</title>
+</head>
+<body>
+	<div tile:fragment="content">
+		<form name="f" th:action="@{/login}" method="post">
+			<fieldset>
+				<legend>Please Login</legend>
+				<div th:if="${param.error}" class="alert alert-error">
+					Invalid name and password.
+				</div>
+				<div th:if="${param.logout}" class="alert alert-success">
+					You have been logged out.
+				</div>
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username"/>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password"/>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<div class="form-actions">
+					<button type="submit" class="btn">Log In</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</body>
+
+</html>

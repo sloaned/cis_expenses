@@ -4,14 +4,11 @@ import com.outhreeit.quickrbooks.entities.BaseEntity;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 
-/**
- * Created by g on 12/3/15.
- */
+
 @Transactional
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
@@ -52,6 +49,15 @@ public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
     public T getByID(Integer id) {
 
         return em.createQuery(getSelect() +" x where x.id = :id", entity).setParameter("id",id).getSingleResult();
+    }
+    
+    public boolean doesNameExist(String Name){
+    	System.out.println("entity = " + entity);
+    	System.out.println("name = " + Name);
+    	System.out.println("em = " + em);
+    	ArrayList<T> results = (ArrayList<T>) em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getResultList();
+    	System.out.println("entity = " + entity);
+    	return(results != null && results.size() != 0);
     }
 
     public ArrayList<T> getAll() {
