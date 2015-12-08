@@ -1,14 +1,9 @@
 package com.outhreeit.quickrbooks.entities;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by gfisher on 12/3/2015.
- */
+
 @Entity
 public class ExpenseReport extends BaseEntity {
     @ManyToMany(cascade = CascadeType.ALL)
@@ -16,17 +11,6 @@ public class ExpenseReport extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.MERGE)
     User user;
-    @ManyToOne
-    Project project;
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
 
     public Set<LineItem> getLineItems() {
         return lineItems;
