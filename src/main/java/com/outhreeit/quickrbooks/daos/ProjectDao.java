@@ -6,6 +6,7 @@ import com.outhreeit.quickrbooks.entities.Project;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Repository
@@ -16,10 +17,11 @@ public class ProjectDao extends BaseDao<Project> implements IProjectDao {
     }
 
     public Project getByID(Integer id){
-        Set<ExpenseReport> reports= (Set<ExpenseReport>) em.createQuery("Select e from ExpenseReport e join Project p on p.id = e.project_id" +
-            "where e.project_id = :id").setParameter("id",id).getResultList();
+        Set<ExpenseReport> reports=  new HashSet<>(em.createQuery("Select e from ExpenseReport e join e.project p " +
+            "where p.id = :id",ExpenseReport.class).setParameter("id",id).getResultList());
         Project p = super.getByID(id);
         p.setReports(reports);
+        System.out.println(p);
         return p;
     }
 }

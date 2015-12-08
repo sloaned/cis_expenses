@@ -1,8 +1,9 @@
 package com.outhreeit.quickrbooks.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 /**
@@ -15,9 +16,6 @@ public class ExpenseReport extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.MERGE)
     User user;
-    @ManyToOne
-    Project project;
-
     @ManyToOne
     Project project;
 
