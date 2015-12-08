@@ -11,4 +11,5 @@ public class ProjectDao extends BaseDao<Project> implements IProjectDao {
     public ProjectDao() {
         super(Project.class);
     }
+
 }

@@ -1,7 +1,6 @@
 package com.outhreeit.quickrbooks.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -12,12 +11,22 @@ import java.util.Set;
  */
 @Entity
 public class ExpenseReport extends BaseEntity {
-    @ManyToMany
-    @JsonBackReference
+    @ManyToMany(cascade = CascadeType.ALL)
     Set<LineItem> lineItems;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     User user;
+    @ManyToOne
+    Project project;
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
 
     public Set<LineItem> getLineItems() {
         return lineItems;

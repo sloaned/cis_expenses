@@ -14,7 +14,6 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
-
 	
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
@@ -52,13 +51,5 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
        
         return provider;
     }
-    /*
-    private CsrfTokenRepository csrfTokenRepository() 
-    { 
-        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository(); 
-        repository.setSessionAttributeName("_csrf");
-        return repository; 
-    }*/
-    	
 }
 
