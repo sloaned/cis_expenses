@@ -5,20 +5,16 @@ app.controller('expenseReportCtrl', ['$scope', 'expenseReportFactory', 'LineItem
     function($scope, expenseReportFactory, LineItemTypes){
         $scope.expenseReport = {};
 
-        $scope.lineItems = [];
-        $scope.expenseReport.name = $scope.inputExpenseReportName;
+        $scope.expenseReport.lineItems = [];
 
-        $scope.save = function(){
-            expenseReport.name = $scope.inputExpenseReportName;
-            expenseReport.lineItems = $scope.lineItems;
-            expenseReportFactory.createExpenseReport(expenseReport);
+        $scope.save = function() {
+            expenseReportFactory.createExpenseReport($scope.expenseReport);
         }
 
         $scope.addItem = function() {
-            var item = {};
-            item.type = $scope.dropdownvalue;
+            var item = $scope.dropdownvalue;
 
-            var arr = $scope.lineItems;
+            var arr = $scope.expenseReport.lineItems;
             if(arr.indexOf(item) == -1){
                 arr.push(item);
             }
