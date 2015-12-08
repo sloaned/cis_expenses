@@ -29,7 +29,7 @@ public abstract class BaseService<T extends BaseEntity> implements IBaseService<
     }
 
     public void delete(Integer id) {
-
+        dao.delete(id);
     }
 
     public BaseService() {
