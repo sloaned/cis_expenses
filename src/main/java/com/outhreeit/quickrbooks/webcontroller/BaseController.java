@@ -41,4 +41,9 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
     public T getByID(@PathVariable Integer id) {
         return (T) service.getByID(id);
     }
+    
+    @RequestMapping(value="/{name}", method=RequestMethod.GET)
+    public boolean doesNameExist(@PathVariable String name){
+    	return service.doesNameExist(name);
+    }
 }

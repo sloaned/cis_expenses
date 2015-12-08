@@ -9,11 +9,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
-
+	
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.authenticationProvider(activeDirectoryLdapAuthenticationProvider());
@@ -24,14 +26,22 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
        
         http
                 .authorizeRequests()
-                //.antMatchers("/").permitAll()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/lib/**").permitAll()
+                .antMatchers("/js/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                	.loginPage("/log-in.html")
+                	.permitAll()
+                	.successHandler(new AuthSuccessHandler())
                 .and()
                 .logout()
                 .and()
                 .rememberMe();
+        
+        //http.csrf().csrfTokenRepository(csrfTokenRepository());
+        http.csrf().disable();
     }
    
     @Bean
@@ -41,6 +51,13 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
         provider.setUseAuthenticationRequestCredentials(true);
        
         return provider;
+    }
+    
+    private CsrfTokenRepository csrfTokenRepository() 
+    { 
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository(); 
+        repository.setSessionAttributeName("_csrf");
+        return repository; 
     }
     	
     

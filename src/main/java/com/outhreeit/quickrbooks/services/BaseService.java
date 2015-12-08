@@ -37,4 +37,8 @@ public abstract class BaseService<T extends BaseEntity> implements IBaseService<
     public T getByID(Integer id){
         return (T) dao.getByID(id);
     }
+    
+    public boolean doesNameExist(String name){
+    	return dao.doesNameExist(name);
+    }
 }

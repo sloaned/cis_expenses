@@ -50,6 +50,15 @@ public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
 
         return em.createQuery(getSelect() +" x where x.id = :id", entity).setParameter("id",id).getSingleResult();
     }
+    
+    public boolean doesNameExist(String Name){
+    	System.out.println("entity = " + entity);
+    	System.out.println("name = " + Name);
+    	System.out.println("em = " + em);
+    	ArrayList<T> results = (ArrayList<T>) em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getResultList();
+    	System.out.println("entity = " + entity);
+    	return(results != null && results.size() != 0);
+    }
 
     public ArrayList<T> getAll() {
         //there is a bug wherein you cannot set the table with setParameter and must use string concat
