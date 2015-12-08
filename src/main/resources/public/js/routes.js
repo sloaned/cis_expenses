@@ -14,8 +14,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
             controller: 'projectCtrl'
         }).state('expenseReport', {
             url: '/expense-report',
-            templateUrl: '../templates/expense_report.tpl.html',
-            controller: 'expenseReportCtrl',
+            views:{
+                '':{templateUrl: '../templates/expense_report.tpl.html',
+                    controller: 'expenseReportCtrl'},
+                'projectSelect@expenseReport':{templateUrl: '../templates/projectSelect.tpl.html',
+                                                controller: 'projectSelectCtrl'}},
             resolve: {
                 LineItemTypes: function(expenseReportFactory) {
                     return expenseReportFactory.getAllListItems();
@@ -25,9 +28,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 }
             }
         }).state('createProject', {
-                      url: '/createProject',
-                      templateUrl: '../templates/project.tpl.html',
-                      controller: 'projectCreateCtrl'
+              url: '/createProject',
+              templateUrl: '../templates/project.tpl.html',
+              controller: 'projectCreateCtrl'
+        }).state('home', {
+            url: '/'
         });
 
     }]);
