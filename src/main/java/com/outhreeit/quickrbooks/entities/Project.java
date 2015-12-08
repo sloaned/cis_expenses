@@ -1,27 +1,20 @@
 package com.outhreeit.quickrbooks.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Entity
 public class Project extends BaseEntity {
 
-  @Transient
+  @OneToMany
   private Set<ExpenseReport> reports;
-  @OneToOne
+  @ManyToOne
   private User approver;
-
-  public Set<ExpenseReport> getReports() {
-    return reports;
-  }
-
-  public void setReports(Set<ExpenseReport> reports) {
-    this.reports = reports;
-  }
-
-
 
     public User getApprover() {
         return approver;
@@ -30,6 +23,5 @@ public class Project extends BaseEntity {
     public void setApprover(User approver) {
         this.approver = approver;
     }
-
 
 }

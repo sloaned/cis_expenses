@@ -19,7 +19,7 @@ public class LineItem{
 
     BigDecimal datMoney;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     LineItemType type;
 
     public Integer getId() {

@@ -28,9 +28,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 }
             }
         }).state('createProject', {
-                      url: '/createProject',
-                      templateUrl: '../templates/project.tpl.html',
-                      controller: 'projectCreateCtrl'
+              url: '/createProject',
+              templateUrl: '../templates/project.tpl.html',
+              controller: 'projectCreateCtrl'
+        }).state('home', {
+            url: '/'
         });
 
     }]);
