@@ -97,4 +97,17 @@ public abstract class PageObject {
         Select select = new Select(find(by));
         select.selectByVisibleText(text);
     }
+
+    public WebElement getButtonByText(String text){
+        WebElement button = null;
+        List<WebElement> buttons = findElements(By.xpath("//BUTTON"));
+
+        for (WebElement webElement : buttons) {
+            if (webElement.getText().equals(text)){
+                button = webElement;
+            }
+        }
+
+        return button;
+    }
 }
