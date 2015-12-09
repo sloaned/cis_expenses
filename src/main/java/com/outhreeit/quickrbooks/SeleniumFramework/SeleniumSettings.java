@@ -10,9 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumSettings {
     private WebDriver driver;
 
-    private String CHROME_MAC = "src/test/java/com/catalyst/collector/PageObjectFramework/Drivers/chromedriver";
-    private String CHROME_WIN = "src/test/java/com/catalyst/collector/PageObjectFramework/Drivers/chromedriver.exe";
-    private String CHROME_LNX = "src/test/java/com/catalyst/collector/PageObjectFramework/Drivers/chromedriverlinux";
+    private String CHROME_MAC = "src/test/java/com/outhreeit/quickrbooks/PageObjectFramework/Drivers/chromedriver";
+    private String CHROME_WIN = "src/test/java/com/outhreeit/quickrbooks/PageObjectFramework/Drivers/chromedriver.exe";
+    private String CHROME_LNX = "src/test/java/com/outhreeit/quickrbooks/PageObjectFramework/Drivers/chromedriverlinux";
 
     public SeleniumSettings(){
         if (SystemUtils.IS_OS_MAC)
