@@ -34,4 +34,13 @@ public class LineItem{
     public void setDatMoney(BigDecimal datMoney) {
         this.datMoney = datMoney;
     }
+
+    @Override
+    public String toString() {
+        return "LineItem{" +
+                "id=" + id +
+                ", datMoney=" + datMoney +
+                ", type=" + type +
+                '}';
+    }
 }

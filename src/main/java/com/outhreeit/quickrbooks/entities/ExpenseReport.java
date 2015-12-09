@@ -12,7 +12,7 @@ public class ExpenseReport extends BaseEntity {
     @ManyToOne(cascade = CascadeType.MERGE)
     User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     Project project;
 
     public Project getProject() {
@@ -38,5 +38,14 @@ public class ExpenseReport extends BaseEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "ExpenseReport{" +
+                "lineItems=" + lineItems +
+                ", user=" + user +
+                ", project=" + project +
+                '}';
     }
 }

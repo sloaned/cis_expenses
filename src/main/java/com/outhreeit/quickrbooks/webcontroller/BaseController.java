@@ -23,6 +23,7 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
 
     @RequestMapping(value="", method=RequestMethod.POST)
     public void add(@RequestBody T t) {
+        System.out.println(t);
         service.add(t);
     }
 

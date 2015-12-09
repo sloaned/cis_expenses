@@ -8,7 +8,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('project', {
+        $stateProvider.state('viewReports', {
+            url: '/',
+            templateUrl: '../templates/viewReports.tpl.html',
+            controller: 'viewReportsCtrl'
+        }).state('project', {
             url:'/project',
             templateUrl: '../templates/project.tpl.html',
             controller: 'projectCtrl'
