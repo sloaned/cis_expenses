@@ -1,7 +1,12 @@
 package com.outhreeit.quickrbooks.webcontroller;
 
 import com.outhreeit.quickrbooks.entities.BaseEntity;
+import com.outhreeit.quickrbooks.entities.User;
 import com.outhreeit.quickrbooks.services.BaseService;
+import com.outhreeit.quickrbooks.services.UserService;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,4 +46,18 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
     public T getByID(@PathVariable Integer id) {
         return (T) service.getByID(id);
     }
+    
+ /*   @RequestMapping(value="/{name}", method=RequestMethod.GET)
+    public boolean doesNameExist(@PathVariable String name){
+    	return service.doesNameExist(name);
+    }*/
+    
+    @RequestMapping(value="/loggedin", method= RequestMethod.GET)
+    public String addUserIfNotInDatabase() {
+		((UserService) service).addUserIfNotInDatabase();
+        return "redirect:/index.html";
+    }
+    
+   
+
 }

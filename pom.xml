@@ -58,7 +58,58 @@
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
         </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>spring-ldap-core</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.13</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>4.0.3.RELEASE</version>
+		</dependency>
+   	    <dependency>
+       	    <groupId>ch.qos.logback</groupId>
+     	    <artifactId>logback-classic</artifactId>
+    	    <version>1.1.2</version>
+    	    <scope>test</scope>
+   	   </dependency>
+   	   <dependency>
+   	  	   <groupId>commons-httpclient</groupId>
+    	   <artifactId>commons-httpclient</artifactId>
+    	   <version>3.1</version>
+     	   <scope>test</scope>
+   	   </dependency>
+ 	   <dependency>
+		   <groupId>org.springframework.security</groupId>
+		   <artifactId>spring-security-ldap</artifactId>
+		   <version>4.0.3.RELEASE</version>
+	   </dependency>
+	  <!--   <dependency>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-all</artifactId>
+			<version>1.5.7</version>
+		</dependency>
+	   -->
     </dependencies>
     <build>
         <plugins>
