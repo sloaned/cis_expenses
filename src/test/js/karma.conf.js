@@ -17,8 +17,13 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'tests/*.js',
-      '../../main/resources/public/**/*.js'
+      'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.min.js',
+      '../../main/resources/public/lib/js/*.js',
+      '../../main/resources/public/js/*.js',
+      '../../main/resources/public/js/factory/*.js',
+            '../../main/resources/public/js/**/*.js',
+      'tests/*.js'
     ],
 
 

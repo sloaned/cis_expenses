@@ -22,14 +22,16 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
 
         }
 
+        var nameArray = [];
         $scope.addItem = function() {
             var item = {};
-            console.log($scope.dropdownvalue)
+            name = $scope.dropdownvalue.name;
             item.type = $scope.dropdownvalue;
             $scope.showButton = true;
             var arr = $scope.expenseReport.lineItems;
-            if(arr.indexOf(item.type.name) == -1){
+            if(nameArray.indexOf(name) == -1){
                 arr.push(item);
+                nameArray.push(name)
             }
         }
 
