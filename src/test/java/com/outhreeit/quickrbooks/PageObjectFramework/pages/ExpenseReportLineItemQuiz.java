@@ -54,11 +54,26 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     @Test
     public void addALineItemToExpenseReportClickSubmitNavigatesToHomePage(){
-
+        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        dropdown.selectByVisibleText("Mileage");
+        WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
+        driver.findElement(By.xpath("//button")).click();
+        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("")));
+        String expected = VALID_NAME;
+        String actual = newReport.getText();
+        assertEquals(expected, actual);
     }
 
     @Test
     public void addLineItemAndValueToExpenseReportClickSubmitNavigatesToHomePage() {
-
+        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        dropdown.selectByVisibleText("Mileage");
+        WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
+        newRow.sendKeys(VALID_VALUE);
+        driver.findElement(By.xpath("//button")).click();
+        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("xpath for newest report"))); //Change the xpath once log in is figured out
+        String expected = VALID_NAME;
+        String actual = newReport.getText();
+        assertEquals(expected, actual);
     }
 }
