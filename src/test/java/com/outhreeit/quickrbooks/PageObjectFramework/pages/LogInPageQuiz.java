@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by ddelaney on 12/9/2015.
  */
-public class LogInPageTest extends TestPageObject {
+public class LogInPageQuiz extends TestPageObject {
     private final String VALID_USERNAME = "user";
     private final String SUPER_SECURE_VALID_PASSWORD = "root";
-    
+
     @Test
     public void typeInAValidUserNameAndPasswordAndClickSubmit(){
         LogInPage logInPage = new LogInPage(driver);

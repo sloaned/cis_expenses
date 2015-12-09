@@ -1,5 +1,6 @@
 package com.outhreeit.quickrbooks.SeleniumFramework.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -8,5 +9,10 @@ import org.openqa.selenium.WebDriver;
 public class LogoutPage extends HomePage {
     public LogoutPage(WebDriver driver) {
         super(driver);
+
+    }
+
+    public void clickLogoutButton(){
+        click(By.linkText("Logout"));
     }
 }
