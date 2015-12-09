@@ -7,12 +7,6 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
         $scope.showButton = false;
         userFactory.getCurrentUser().then(
             function(success) {
-                if (Object.keys($scope.expenseReport.project).length === 0 ||
-                    $scope.expenseReport.project.id === "" ||
-                    $scope.expenseReport.project.id === undefined)
-                {
-                    $scope.expenseReport.project = null;
-                }
                 $scope.expenseReport.user = success.data;
             }
         );
@@ -31,14 +25,16 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
 
         }
 
+        var nameArray = [];
         $scope.addItem = function() {
             var item = {};
-            console.log($scope.dropdownvalue)
+            name = $scope.dropdownvalue.name;
             item.type = $scope.dropdownvalue;
             $scope.showButton = true;
             var arr = $scope.expenseReport.lineItems;
-            if(arr.indexOf(item) == -1){
+            if(nameArray.indexOf(name) == -1){
                 arr.push(item);
+                nameArray.push(name)
             }
         }
 
