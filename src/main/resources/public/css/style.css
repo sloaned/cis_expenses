@@ -25,4 +25,5 @@
 
 #loginPage .error{
 	color: red;
+	height: 50px;
 }
