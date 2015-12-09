@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +21,16 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
         auth.authenticationProvider(activeDirectoryLdapAuthenticationProvider());
     }
    
+    
+	/*@Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception{
+		
+		auth.inMemoryAuthentication()
+			.withUser("user")
+			.password("root")
+			.authorities("USER");
+	}*/
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception{
        
@@ -32,7 +43,7 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                	.loginPage("/log-in.html")
+                	.loginPage("/login")
                 	.permitAll()
                 	.successHandler(new AuthSuccessHandler())
                 .and()
