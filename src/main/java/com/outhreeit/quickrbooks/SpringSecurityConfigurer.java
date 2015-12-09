@@ -20,7 +20,6 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.authenticationProvider(activeDirectoryLdapAuthenticationProvider());
     }
-   
     
 	/*@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception{

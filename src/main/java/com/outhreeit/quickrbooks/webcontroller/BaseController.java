@@ -20,7 +20,6 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
         this.service = service;
     }
 
-
     @RequestMapping(value="", method= RequestMethod.GET)
     public List<T> getAll() {
         return service.getAll();
@@ -44,19 +43,6 @@ public abstract class BaseController<T extends BaseEntity> implements IBaseContr
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public T getByID(@PathVariable Integer id) {
         return (T) service.getByID(id);
-    }
-    
- /*   @RequestMapping(value="/{name}", method=RequestMethod.GET)
-    public boolean doesNameExist(@PathVariable String name){
-    	return service.doesNameExist(name);
-    }*/
-    
-    @RequestMapping(value="/loggedin", method= RequestMethod.GET)
-    public String addUserIfNotInDatabase() {
-		((UserService) service).addUserIfNotInDatabase();
-        return "redirect:/index.html";
-    }
-    
-   
+    } 
 
 }
