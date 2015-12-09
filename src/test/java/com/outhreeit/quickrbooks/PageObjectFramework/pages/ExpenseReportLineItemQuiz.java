@@ -30,7 +30,6 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
     @Test
     public void addALineItemToTheExpenseReportSuccessfullyTest(){
         Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
-    //    erp.click(By.id("drpdwnvalue"));
         dropdown.selectByVisibleText("Mileage");
         WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
         String expected = "Mileage";
