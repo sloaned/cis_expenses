@@ -1,8 +1,7 @@
-package com.outhreeit.quickrbooks.PageObjectFramework.pages;
+package com.outhreeit.quickrbooks.PageObjectFramework.Pages;
 
 import com.outhreeit.quickrbooks.SeleniumFramework.Pages.LogInPage;
 import com.outhreeit.quickrbooks.SeleniumFramework.TestPageObject;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 

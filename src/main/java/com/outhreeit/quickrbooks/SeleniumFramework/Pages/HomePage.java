@@ -13,7 +13,7 @@ public class HomePage extends LogInPage {
         super(driver);
         sendKeys(By.name("username"), "LDAPUser");
         sendKeys(By.name("password"), "@oxXiS,;AIry\\{8wixuf3;f^?");
-        click(By.name("submit"));
+        getButtonByText("Log In").click();
     }
 
 }

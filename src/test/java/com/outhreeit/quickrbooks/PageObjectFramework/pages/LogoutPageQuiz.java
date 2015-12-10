@@ -1,4 +1,4 @@
-package com.outhreeit.quickrbooks.PageObjectFramework.pages;
+package com.outhreeit.quickrbooks.PageObjectFramework.Pages;
 
 import com.outhreeit.quickrbooks.SeleniumFramework.Pages.LogoutPage;
 import com.outhreeit.quickrbooks.SeleniumFramework.TestPageObject;
