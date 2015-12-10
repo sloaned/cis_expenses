@@ -1,7 +1,9 @@
 package com.outhreeit.quickrbooks.PageObjectFramework.Pages;
 
 import com.outhreeit.quickrbooks.SeleniumFramework.Pages.ExpenseReportPage;
+import com.outhreeit.quickrbooks.SeleniumFramework.Pages.HomePage;
 import com.outhreeit.quickrbooks.SeleniumFramework.TestPageObject;
+import org.apache.tomcat.jni.Thread;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -17,7 +19,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     private final String VALID_VALUE = "3200";
-    private ExpenseReportPage erp;
     private final String VALID_NAME = "Expense Report Test Name";
 
 
@@ -51,27 +52,33 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     @Test
     public void addALineItemToExpenseReportClickSubmitNavigatesToHomePage(){
-        ExpenseReportPage erp = new ExpenseReportPage(driver);
-        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"noValueWithLineItem");
-        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
+        HomePage homePage = new HomePage(driver);
+        int expected = homePage.findElements(By.xpath("/html/body/div/ui-view/div/table/tbody/tr")).size()+1;
+        homePage.find(By.linkText("Create")).click();
+        homePage.find(By.linkText("Expense Report")).click();
+        homePage.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"noValueWithLineItem");
+        Select dropdown = new Select(homePage.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/label"));
-        erp.getButtonByText("Save").click();
-        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td[last()]")).getText();
-        String expected = VALID_NAME;
+        homePage.find(By.xpath("/html/body/div/ui-view/div/div[2]/label"));
+        homePage.getButtonByText("Save").click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr["+expected+"]")));
+        int actual = homePage.findElements(By.xpath("/html/body/div/ui-view/div/table/tbody/tr")).size();
         assertEquals(expected, actual);
     }
 
     @Test
     public void addLineItemAndValueToExpenseReportClickSubmitNavigatesToHomePage() {
-        ExpenseReportPage erp = new ExpenseReportPage(driver);
-        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"ValueWithLineItem");
-        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
+        HomePage homePage = new HomePage(driver);
+        int expected = homePage.findElements(By.xpath("/html/body/div/ui-view/div/table/tbody/tr")).size()+1;
+        homePage.find(By.linkText("Create")).click();
+        homePage.find(By.linkText("Expense Report")).click();
+        homePage.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"ValueWithLineItem");
+        Select dropdown = new Select(homePage.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/input")).sendKeys(VALID_VALUE);
-        erp.getButtonByText("Save").click();
-        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td[last()]")).getText();
-        String expected = VALID_NAME;
+        homePage.find(By.xpath("/html/body/div/ui-view/div/div[2]/input")).sendKeys(VALID_VALUE);
+        homePage.getButtonByText("Save").click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr["+expected+"]")));
+        int actual = homePage.findElements(By.xpath("/html/body/div/ui-view/div/table/tbody/tr")).size();
         assertEquals(expected, actual);
     }
 }

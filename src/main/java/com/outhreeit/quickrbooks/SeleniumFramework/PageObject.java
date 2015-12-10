@@ -41,6 +41,7 @@ public abstract class PageObject {
     }
 
     public List<WebElement> findElements(By by) {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(by));
         return driver.findElements(by);
     }
 

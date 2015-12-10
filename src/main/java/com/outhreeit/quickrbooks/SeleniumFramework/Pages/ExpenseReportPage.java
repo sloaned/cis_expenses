@@ -16,9 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ExpenseReportPage extends HomePage{
     public ExpenseReportPage(WebDriver driver) {
         super(driver);
-        WebElement create = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Create")));
-        create.click();
-        WebElement expenseReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Expense Report")));
-        expenseReport.click();
+        find(By.linkText("Create")).click();
+        find(By.linkText("Expense Report")).click();
     }
 }
