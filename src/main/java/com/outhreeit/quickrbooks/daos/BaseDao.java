@@ -1,7 +1,7 @@
 package com.outhreeit.quickrbooks.daos;
 
+import com.outhreeit.quickrbooks.daos.Interface.IBaseDao;
 import com.outhreeit.quickrbooks.entities.BaseEntity;
-import com.outhreeit.quickrbooks.entities.User;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 @Transactional
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
+public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T> {
 
     public BaseDao(Class<T> entity) {
         this.table = entity.getSimpleName();

@@ -1,4 +1,4 @@
-package com.outhreeit.quickrbooks.daos;
+package com.outhreeit.quickrbooks.daos.Interface;
 
 import com.outhreeit.quickrbooks.entities.User;
 
