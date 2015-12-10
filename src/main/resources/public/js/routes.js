@@ -16,7 +16,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 ExpenseReports: function(userFactory, expenseReportFactory) {
                     return userFactory.getCurrentUser().then(
                         function(success) {
-                            console.log(success.data.id);
                             return expenseReportFactory.getAllExpenseReports(success.data.id);
                         },
                         function(error) {

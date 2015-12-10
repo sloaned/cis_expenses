@@ -1,12 +1,9 @@
 package com.outhreeit.quickrbooks.services;
 
-import com.outhreeit.quickrbooks.daos.ExpenseReportDao;
-import com.outhreeit.quickrbooks.daos.IExpenseReportDao;
+import com.outhreeit.quickrbooks.daos.Interface.IExpenseReportDao;
 import com.outhreeit.quickrbooks.entities.ExpenseReport;
 import com.outhreeit.quickrbooks.entities.LineItem;
-import com.outhreeit.quickrbooks.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
