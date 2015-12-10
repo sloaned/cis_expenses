@@ -1,6 +1,8 @@
 package com.outhreeit.quickrbooks.daos;
 
 import com.outhreeit.quickrbooks.entities.BaseEntity;
+import com.outhreeit.quickrbooks.entities.User;
+
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +51,15 @@ public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
 
     public T getByID(Integer id) {
         return em.createQuery(getSelect() +" x where x.id = :id", entity).setParameter("id",id).getSingleResult();
+    }
+    
+    public boolean doesNameExist(String Name){
+    	ArrayList<T> results = (ArrayList<T>) em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getResultList();
+    	return(results != null && results.size() != 0);
+    }
+    
+    public T getByName(String Name){
+    	return em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getSingleResult();
     }
 
     public ArrayList<T> getAll() {

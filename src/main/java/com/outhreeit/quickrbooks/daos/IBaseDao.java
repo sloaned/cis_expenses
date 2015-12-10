@@ -10,4 +10,6 @@ public interface IBaseDao<T extends BaseEntity> {
     void delete(Integer id);
     List<T> getAll();
     T getByID(Integer id);
+    boolean doesNameExist(String name);
+    T getByName(String name);
 }

@@ -18,3 +18,12 @@
 .navbar-nav > li {
     border-left: 1px solid #E7E7E7;
 }
+
+#loginPage{
+	text-align: center;
+}
+
+#loginPage .error{
+	color: red;
+	height: 50px;
+}
