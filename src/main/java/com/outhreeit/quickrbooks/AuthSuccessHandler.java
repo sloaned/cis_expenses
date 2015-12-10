@@ -27,30 +27,14 @@ import com.outhreeit.quickrbooks.webcontroller.UserWebController;
 public class AuthSuccessHandler implements AuthenticationSuccessHandler {
 
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-	
-	private UserService userService; 
-	
-	@Autowired
-	public AuthSuccessHandler(UserService service){
-		this.userService = service;
-	}
 
 	public AuthSuccessHandler(){}
-	
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException, ServletException {
-		System.out.println("user = " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String authUser = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-		System.out.println("user = " + authUser);
-		/*boolean inDatabase = userService.doesNameExist(authUser);
-		if(!inDatabase){
-			User user = new User(authUser);
-			userService.add(user);
-		}*/
 		redirectStrategy.sendRedirect(request,  response,  "/loginsuccess");
 	}
-	
 	
 }

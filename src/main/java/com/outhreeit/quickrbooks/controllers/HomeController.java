@@ -35,17 +35,29 @@ public class HomeController {
     
     @RequestMapping(value="/login", method=RequestMethod.GET)
     public String loginPage(HttpServletRequest request, HttpServletResponse response){
-    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	/*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
-        return "redirect:/log-in.html";
+        }*/
+        return "/log-in.html";
     }
+    
     
     @RequestMapping(value="/loginsuccess", method=RequestMethod.GET)
     public String loginSuccess(){
     	service.addUserIfNotInDatabase();
     	return "redirect:/";
     }
+    
+  /*  @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){    
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout";
+    }*/
+    
+ 
 
 }

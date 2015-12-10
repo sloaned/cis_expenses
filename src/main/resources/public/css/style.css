@@ -22,3 +22,8 @@
 #loginPage{
 	text-align: center;
 }
+
+#loginPage .error{
+	color: red;
+	height: 50px;
+}

@@ -54,22 +54,11 @@ public abstract class BaseDao<T extends BaseEntity> implements IBaseDao<T>{
     }
     
     public boolean doesNameExist(String Name){
-    	System.out.println("entity = " + entity);
-    	System.out.println("name = " + Name);
-    	System.out.println("em = " + em);
     	ArrayList<T> results = (ArrayList<T>) em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getResultList();
-    	System.out.println("entity = " + entity);
     	return(results != null && results.size() != 0);
     }
     
     public T getByName(String Name){
-    	System.out.println("entity = " + entity);
-    	System.out.println("name = " + Name);
-    	System.out.println("em = " + em);
-    	User user = (User) em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getSingleResult();
-    	ArrayList<T> users = (ArrayList<T>) em.createQuery(getSelect() +" x", entity).getResultList();
-    	System.out.println("all users = " + users);
-    	System.out.println("result = " + user);
     	return em.createQuery(getSelect() + " x WHERE x.name = :name", entity).setParameter("name", Name).getSingleResult();
     }
 
