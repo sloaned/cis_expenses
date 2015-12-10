@@ -38,7 +38,7 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
         $scope.LineItemTypes = LineItemTypes.data;
 
         $scope.validateDatMoney = function(datMoney) {
-            console.log(datMoney);
+            //console.log(datMoney);
         }
     }
 ]);
