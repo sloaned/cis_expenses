@@ -1,6 +1,12 @@
 'use strict';
 
-angular.module('QuickrBooks').controller('projectCreateCtrl', ['$scope', 'projectFactory', function($scope, projectFactory) {
+angular.module('QuickrBooks').controller('projectCreateCtrl', ['$scope', 'projectFactory', 'userFactory', function($scope, projectFactory, userFactory) {
+    $scope.newProject = {};
+    userFactory.getCurrentUser().then(
+        function(success) {
+            $scope.newProject.approver = success.data;
+        }
+    );
 
     /* Clears the project save message */
     $scope.clearResult = function() {
@@ -25,8 +31,9 @@ angular.module('QuickrBooks').controller('projectCreateCtrl', ['$scope', 'projec
     /* Saves the new project to the database, displays a save message,
        and resets the create new project text box. */
     $scope.saveProject = function() {
-        var newProject = {name: $scope.projectName};
-        projectFactory.create(newProject);
+        $scope.newProject.name = $scope.projectName;
+
+        projectFactory.create($scope.newProject);
         $scope.showButton = false;
         $scope.result = "Project " + $scope.projectName + " saved.";
         $scope.projectName = "";
