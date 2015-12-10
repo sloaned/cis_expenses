@@ -1,10 +1,8 @@
 package com.outhreeit.quickrbooks.daos;
 
+import com.outhreeit.quickrbooks.daos.Interface.IExpenseReportDao;
 import com.outhreeit.quickrbooks.entities.ExpenseReport;
-import com.outhreeit.quickrbooks.entities.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 

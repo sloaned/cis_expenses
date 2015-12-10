@@ -6,8 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.outhreeit.quickrbooks.daos.IBaseDao;
-import com.outhreeit.quickrbooks.daos.IUserDao;
+import com.outhreeit.quickrbooks.daos.Interface.IUserDao;
 import com.outhreeit.quickrbooks.entities.User;
 
 @Service
