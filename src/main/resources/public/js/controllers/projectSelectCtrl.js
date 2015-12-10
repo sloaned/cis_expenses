@@ -13,6 +13,5 @@ app.controller('projectSelectCtrl', ['$scope','getAllProjects',
     $.addItem = function(){
       $.expenseReport.project.id = $.dropdownvalue.id;
     }
-
   }
 ]);

@@ -16,7 +16,7 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
                     $state.go("viewReports", {}, {reload: true})
                 },
                 function(error) {
-                    console.log("working as intended");
+                   // console.log("working as intended");
                 }
             );
 
@@ -38,7 +38,7 @@ app.controller('expenseReportCtrl', ['$scope', '$state', 'expenseReportFactory',
         $scope.LineItemTypes = LineItemTypes.data;
 
         $scope.validateDatMoney = function(datMoney) {
-            console.log(datMoney);
+            //console.log(datMoney);
         }
     }
 ]);
