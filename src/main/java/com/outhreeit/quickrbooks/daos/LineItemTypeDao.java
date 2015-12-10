@@ -1,5 +1,6 @@
 package com.outhreeit.quickrbooks.daos;
 
+import com.outhreeit.quickrbooks.daos.Interface.ILineItemTypeDao;
 import com.outhreeit.quickrbooks.entities.LineItemType;
 import org.springframework.stereotype.Repository;
 

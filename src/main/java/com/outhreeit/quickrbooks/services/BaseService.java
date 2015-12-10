@@ -1,6 +1,6 @@
 package com.outhreeit.quickrbooks.services;
 
-import com.outhreeit.quickrbooks.daos.IBaseDao;
+import com.outhreeit.quickrbooks.daos.Interface.IBaseDao;
 import com.outhreeit.quickrbooks.entities.BaseEntity;
 
 import java.util.List;

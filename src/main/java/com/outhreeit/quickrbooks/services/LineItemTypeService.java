@@ -1,5 +1,5 @@
 package com.outhreeit.quickrbooks.services;
-import com.outhreeit.quickrbooks.daos.ILineItemTypeDao;
+import com.outhreeit.quickrbooks.daos.Interface.ILineItemTypeDao;
 import com.outhreeit.quickrbooks.entities.LineItemType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
