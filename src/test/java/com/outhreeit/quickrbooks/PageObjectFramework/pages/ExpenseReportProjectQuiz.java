@@ -51,7 +51,7 @@ public class ExpenseReportProjectQuiz extends TestPageObject{
         Select dropdown = new Select(driver.findElement(By.id("selectDropdown")));
         dropdown.selectByVisibleText("KCLS");
         driver.findElement(By.xpath("//button")).click();
-        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath(""))); //WAITING FOR OWEN
+        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td")));
         String expected = VALID_NAME;
         String actual = newReport.getText();
         assertEquals(expected, actual);
