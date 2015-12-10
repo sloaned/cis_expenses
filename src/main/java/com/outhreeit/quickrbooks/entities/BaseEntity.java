@@ -26,11 +26,12 @@ public abstract class BaseEntity {
     public void setId(Integer id) {
         this.id = id;
     }
-    
-    public String toString(){
-    	return "BaseEntity{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
+
+    @Override
+    public String toString() {
+        return "BaseEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

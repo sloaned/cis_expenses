@@ -13,6 +13,9 @@ app.factory('expenseReportFactory', ['$http',
             },
             getAllListItems: function(){
                 return $http.get('/line-item-types');
+            },
+            getAllExpenseReports: function(id) {
+                return $http.get("/expense-report?userId=" + id);
             }
         };
     }

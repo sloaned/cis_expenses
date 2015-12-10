@@ -46,7 +46,7 @@ public class HomeController {
     @RequestMapping(value="/loginsuccess", method=RequestMethod.GET)
     public String loginSuccess(){
     	service.addUserIfNotInDatabase();
-    	return "redirect:/index.html";
+    	return "redirect:/";
     }
     
   /*  @RequestMapping(value="/logout", method = RequestMethod.GET)
