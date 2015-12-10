@@ -20,15 +20,12 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
     private ExpenseReportPage erp;
     private final String VALID_NAME = "Expense Report Test Name";
 
-    @Before
-    public void setUp(){
-        erp = new ExpenseReportPage(driver);
-        WebElement expenseReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("inputExpenseReportName")));
-        expenseReport.sendKeys(VALID_NAME);
-    }
+
 
     @Test
     public void addALineItemToTheExpenseReportSuccessfullyTest(){
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
         Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
         WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
@@ -39,7 +36,9 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     @Test
     public void addALineItemThatAlreadyExistsToExpenseReportFailsTests(){
-        int current = driver.findElements(By.xpath("/html/body/div/ui-view/div/div")).size();
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
+        int current = erp.findElements(By.xpath("/html/body/div/ui-view/div/div")).size();
         int expected = current+2;
         Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
@@ -53,10 +52,12 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     @Test
     public void addALineItemToExpenseReportClickSubmitNavigatesToHomePage(){
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
         Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
         WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
-        driver.findElement(By.xpath("//button")).click();
+        erp.click(By.);
         WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td")));
         String expected = VALID_NAME;
         String actual = newReport.getText();
@@ -65,6 +66,8 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
 
     @Test
     public void addLineItemAndValueToExpenseReportClickSubmitNavigatesToHomePage() {
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
         Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
         WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
