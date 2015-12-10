@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotEquals;
 /**
  * Created by ddelaney on 12/9/2015.
  */
-public class CreateExpenseReportQuiz extends TestPageObject {
+public class CreateExpenseReportNameQuiz extends TestPageObject {
     private final String VALID_NAME = "hey im a valid name";
 
     @Test
