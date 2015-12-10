@@ -1,5 +1,6 @@
 package com.outhreeit.quickrbooks.PageObjectFramework.Pages;
 
+import com.outhreeit.quickrbooks.SeleniumFramework.Pages.HomePage;
 import com.outhreeit.quickrbooks.SeleniumFramework.Pages.LogInPage;
 import com.outhreeit.quickrbooks.SeleniumFramework.TestPageObject;
 import org.junit.Test;
@@ -16,25 +17,20 @@ public class LogInPageQuiz extends TestPageObject {
 
     @Test
     public void typeInAValidUserNameAndPasswordAndClickSubmit(){
-        LogInPage logInPage = new LogInPage(driver);
+        HomePage homepage = new HomePage(driver);
         String expectedResult = "QuickrBooks";
-
-        logInPage.sendKeys(By.name("username"), VALID_USERNAME);
-        logInPage.sendKeys(By.name("password"), SUPER_SECURE_VALID_PASSWORD);
-        logInPage.click(By.name("submit"));
-
-        String actualResult = logInPage.getTitle();
+        String actualResult = homepage.getTitle();
         assertEquals(expectedResult, actualResult);
     }
 
     @Test
     public void typeInAInvalidUserNameAndPasswordAndClickSubmit(){
         LogInPage logInPage = new LogInPage(driver);
-        String expectedResult = "Login Page";
+        String expectedResult = "Login";
 
         logInPage.sendKeys(By.name("username"), SUPER_SECURE_VALID_PASSWORD);
         logInPage.sendKeys(By.name("password"), VALID_USERNAME);
-        logInPage.click(By.name("submit"));
+        logInPage.getButtonByText("Log In").click();
 
         String actualResult = logInPage.getTitle();
         assertEquals(expectedResult, actualResult);
@@ -43,7 +39,7 @@ public class LogInPageQuiz extends TestPageObject {
     @Test
     public void tryToNavagateToAPageWhenYouHavNotLoggedInYet(){
         LogInPage logInPage = new LogInPage(driver);
-        String expectedResult = "Login Page";
+        String expectedResult = "Login";
 
         logInPage.goTo("localhost:8080/expense-report");
 

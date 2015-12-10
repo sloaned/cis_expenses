@@ -49,6 +49,7 @@ public class SpringSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .logout()
                 .and()
                 .rememberMe();
+        http.authorizeRequests().antMatchers("/images/*").permitAll();
         
         //http.csrf().csrfTokenRepository(csrfTokenRepository());
         http.csrf().disable();

@@ -13,7 +13,7 @@ public class LogoutPageQuiz extends TestPageObject {
     @Test
     public void clickOnTheLogoutButton() {
         LogoutPage logoutPage = new LogoutPage(driver);
-        String expectedUrl = "http://localhost:8080/login?logout";
+        String expectedUrl = "http://localhost:8080/login";
         logoutPage.clickLogoutButton();
         String actualUrl = logoutPage.getUrl();
         assertEquals(expectedUrl, actualUrl);
