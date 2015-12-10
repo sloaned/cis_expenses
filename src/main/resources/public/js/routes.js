@@ -8,7 +8,24 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('project', {
+        $stateProvider.state('viewReports', {
+            url: '/',
+            templateUrl: '../templates/viewReports.tpl.html',
+            controller: 'viewReportsCtrl',
+            resolve: {
+                ExpenseReports: function(userFactory, expenseReportFactory) {
+                    return userFactory.getCurrentUser().then(
+                        function(success) {
+                            console.log(success.data.id);
+                            return expenseReportFactory.getAllExpenseReports(success.data.id);
+                        },
+                        function(error) {
+                            return "Not working";
+                        }
+                    );
+                }
+            }
+        }).state('project', {
             url:'/project',
             templateUrl: '../templates/project.tpl.html',
             controller: 'projectCtrl'
