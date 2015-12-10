@@ -3,7 +3,9 @@ package com.outhreeit.quickrbooks.SeleniumFramework;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -34,10 +36,12 @@ public abstract class PageObject {
      * @return WebElement - the element found by the given by.
      */
     public WebElement find(By by){
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(by));
         return driver.findElement(by);
     }
 
     public List<WebElement> findElements(By by) {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(by));
         return driver.findElements(by);
     }
 
@@ -96,5 +100,18 @@ public abstract class PageObject {
     public void selectByText(By by, String text){
         Select select = new Select(find(by));
         select.selectByVisibleText(text);
+    }
+
+    public WebElement getButtonByText(String text){
+        WebElement button = null;
+        List<WebElement> buttons = findElements(By.xpath("//BUTTON"));
+
+        for (WebElement webElement : buttons) {
+            if (webElement.getText().equals(text)){
+                button = webElement;
+            }
+        }
+
+        return button;
     }
 }
