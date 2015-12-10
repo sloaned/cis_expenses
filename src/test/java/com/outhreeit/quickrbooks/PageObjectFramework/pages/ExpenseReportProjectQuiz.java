@@ -20,16 +20,12 @@ public class ExpenseReportProjectQuiz extends TestPageObject{
     private final String VALID_NAME = "Expense Report Test Name";
     private ExpenseReportPage erp;
 
-    @Before
-    public void setUp(){
-        erp = new ExpenseReportPage(driver);
-        WebElement expenseReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("inputExpenseReportName")));
-        expenseReport.sendKeys(VALID_NAME);
-    }
 
     @Test
     public void addAProjectToExpenseReport(){
-        Select dropdown = new Select(driver.findElement(By.id("selectDropdown")));
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
+        Select dropdown = new Select(erp.find(By.id("selectDropdown")));
         dropdown.selectByIndex(1);
         String expected = dropdown.getOptions().get(1).getText();
         String actual = dropdown.getFirstSelectedOption().getText();
@@ -38,7 +34,9 @@ public class ExpenseReportProjectQuiz extends TestPageObject{
 
     @Test
     public void addADifferentProjectToExpenseReport(){
-        Select dropdown = new Select(driver.findElement(By.id("selectDropdown")));
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
+        Select dropdown = new Select(erp.find(By.id("selectDropdown")));
         dropdown.selectByIndex(1);
         dropdown.selectByIndex(2);
         String expected = dropdown.getOptions().get(1).getText();
@@ -48,12 +46,15 @@ public class ExpenseReportProjectQuiz extends TestPageObject{
 
     @Test
     public void addProjectToExpenseReportAndSave(){
-        Select dropdown = new Select(driver.findElement(By.id("selectDropdown")));
+        ExpenseReportPage erp = new ExpenseReportPage(driver);
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"ProjectIncludedInExpenseReport");
+        Select lineItem = new Select(erp.find(By.id("drpdwnvalue")));
+        lineItem.selectByVisibleText("Mileage");
+        Select dropdown = new Select(erp.find(By.id("selectDropdown")));
         dropdown.selectByVisibleText("KCLS");
-        driver.findElement(By.xpath("//button")).click();
-        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td")));
+        erp.getButtonByText("Save").click();
+        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td[last()]")).getText();
         String expected = VALID_NAME;
-        String actual = newReport.getText();
         assertEquals(expected, actual);
     }
 

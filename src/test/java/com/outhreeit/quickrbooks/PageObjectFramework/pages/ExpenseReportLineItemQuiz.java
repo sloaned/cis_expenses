@@ -26,11 +26,10 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
     public void addALineItemToTheExpenseReportSuccessfullyTest(){
         ExpenseReportPage erp = new ExpenseReportPage(driver);
         erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
-        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
+        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/label")).getText();
         String expected = "Mileage";
-        String actual = newRow.getText();
         assertEquals(expected, actual);
     }
 
@@ -40,42 +39,39 @@ public class ExpenseReportLineItemQuiz extends TestPageObject{
         erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
         int current = erp.findElements(By.xpath("/html/body/div/ui-view/div/div")).size();
         int expected = current+2;
-        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        WebElement mileageRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
+        erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/label"));
         dropdown.selectByVisibleText("Lodging");
-        WebElement lodgingRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[3]/label")));
+        erp.find(By.xpath("/html/body/div/ui-view/div/div[3]/label"));
         dropdown.selectByVisibleText("Mileage");
-        int actual = driver.findElements(By.xpath("/html/body/div/ui-view/div/div")).size();
+        int actual = erp.findElements(By.xpath("/html/body/div/ui-view/div/div")).size();
         assertEquals(expected, actual);
     }
 
     @Test
     public void addALineItemToExpenseReportClickSubmitNavigatesToHomePage(){
         ExpenseReportPage erp = new ExpenseReportPage(driver);
-        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
-        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"noValueWithLineItem");
+        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
-        erp.click(By.);
-        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td")));
+        erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/label"));
+        erp.getButtonByText("Save").click();
+        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td[last()]")).getText();
         String expected = VALID_NAME;
-        String actual = newReport.getText();
         assertEquals(expected, actual);
     }
 
     @Test
     public void addLineItemAndValueToExpenseReportClickSubmitNavigatesToHomePage() {
         ExpenseReportPage erp = new ExpenseReportPage(driver);
-        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME);
-        Select dropdown = new Select(driver.findElement(By.id("drpdwnvalue")));
+        erp.sendKeys(By.id("inputExpenseReportName"), VALID_NAME+"ValueWithLineItem");
+        Select dropdown = new Select(erp.find(By.id("drpdwnvalue")));
         dropdown.selectByVisibleText("Mileage");
-        WebElement newRow = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/div[2]/label")));
-        newRow.sendKeys(VALID_VALUE);
-        driver.findElement(By.xpath("//button")).click();
-        WebElement newReport = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td"))); //Change the xpath once log in is figured out
+        erp.find(By.xpath("/html/body/div/ui-view/div/div[2]/input")).sendKeys(VALID_VALUE);
+        erp.getButtonByText("Save").click();
+        String actual = erp.find(By.xpath("/html/body/div/ui-view/div/table/tbody/tr/td[last()]")).getText();
         String expected = VALID_NAME;
-        String actual = newReport.getText();
         assertEquals(expected, actual);
     }
 }
