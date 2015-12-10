@@ -20,8 +20,8 @@ public class ExpenseReportService extends BaseService<ExpenseReport> {
         edao = dao;
     }
 
-    public List<ExpenseReport> getAllByUser(Integer id) {
-        return edao.getAllByUser(id);
+    public List<ExpenseReport> getAllByUser(String name) {
+        return edao.getAllByUser(name);
     }
 
     @Override

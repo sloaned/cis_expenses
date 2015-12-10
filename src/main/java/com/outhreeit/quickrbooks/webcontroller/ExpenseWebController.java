@@ -4,6 +4,8 @@ import com.outhreeit.quickrbooks.entities.ExpenseReport;
 import com.outhreeit.quickrbooks.entities.User;
 import com.outhreeit.quickrbooks.services.ExpenseReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,8 +22,10 @@ public class ExpenseWebController extends BaseController<ExpenseReport> {
         super(service);
     }
 
-    @RequestMapping(params = {"userId"})
-    public List<ExpenseReport> getAllByUser(@RequestParam("userId") Integer id) {
-        return ((ExpenseReportService) service).getAllByUser(id);
+    @Override
+    public List<ExpenseReport> getAll() {
+        String name = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        System.out.println(name);
+        return ((ExpenseReportService) service).getAllByUser(name);
     }
 }
